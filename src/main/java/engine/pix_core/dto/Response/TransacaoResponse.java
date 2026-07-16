@@ -3,6 +3,7 @@ package engine.pix_core.dto.Response;
 import engine.pix_core.entity.StatusTransacaoEnum;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record TransacaoResponse(
@@ -11,7 +12,7 @@ public record TransacaoResponse(
         String recebedorNome,
         BigDecimal valor,
         StatusTransacaoEnum status,
-        LocalDateTime dataHora,
+        LocalDate dataHora,
         String mensagemSucesso
 ) {
 }
