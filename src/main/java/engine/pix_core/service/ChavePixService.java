@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Service
-public class ChavePixSerice {
+public class ChavePixService {
 
     @Autowired
     private ChavePixRepository chavePixRepository;
