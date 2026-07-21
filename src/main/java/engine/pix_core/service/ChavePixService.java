@@ -16,6 +16,7 @@ import java.util.UUID;
 @Service
 public class ChavePixService {
 
+
     @Autowired
     private ChavePixRepository chavePixRepository;
 
