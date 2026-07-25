@@ -5,6 +5,7 @@ import engine.pix_core.entity.Comprovante;
 import engine.pix_core.entity.StatusTransacaoEnum;
 import engine.pix_core.entity.Transacao;
 import engine.pix_core.entity.Usuario;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Transactional
 public class ComprovanteIntegrationTest extends BaseIntegrationTest {
 
     @Autowired
@@ -32,10 +34,16 @@ public class ComprovanteIntegrationTest extends BaseIntegrationTest {
         //Arrange
 
         Usuario pagador= new Usuario();
-        pagador=usuarioRepository.save(pagador);
+        pagador.setNome("João Silva");
+        pagador.setCpf("12345678901");
+        pagador.setSaldo(new BigDecimal("1000.00"));
+        pagador = usuarioRepository.save(pagador);
 
         Usuario recebedor= new Usuario();
-        recebedor= usuarioRepository.save(recebedor);
+        recebedor.setNome("Maria Souza");
+        recebedor.setCpf("98765432100");
+        recebedor.setSaldo(new BigDecimal("500.00"));
+        recebedor = usuarioRepository.save(recebedor);
 
         Transacao transacao = new Transacao();
         transacao.setPagador(pagador);
