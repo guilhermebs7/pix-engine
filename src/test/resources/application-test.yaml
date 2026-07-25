@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+  # Desativa o Swagger durante os testes unitários/integração para agilizar a execução
+  springdoc:
+    api-docs:
+      enabled: false
+    swagger-ui:
+      enabled: false
