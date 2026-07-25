@@ -4,6 +4,8 @@ import engine.pix_core.dto.Request.UsuarioRequest;
 import engine.pix_core.dto.Response.UsuarioReponse;
 import engine.pix_core.entity.Usuario;
 import engine.pix_core.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/usuarios")
+@Tag(name = "Usuarios",description = "Endpoints para criação e busca de usuários")
 public class UsuarioController {
 
     @Autowired
@@ -26,6 +29,7 @@ public class UsuarioController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
+    @Operation(summary = "Buscar usuario por Id")
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioReponse> buscarPorId(@PathVariable Long id){
         Usuario usuario = usuarioService.buscarEntidadeUsuario(id);
